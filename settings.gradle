@@ -1,1 +1,1 @@
-include ':app', ':ModuleSMSSDK', ':ModuleSMSSDKAppDelegate'
+include ':app', ':smssdk', ':smssdkAppDelegate'

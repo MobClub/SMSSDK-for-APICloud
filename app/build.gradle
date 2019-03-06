@@ -72,6 +72,6 @@ dependencies {
     compile 'com.android.support:support-v4:24.0.0'
 //    compile 'com.android.support:multidex:1.0.1'
     //引用模块
-    compile project(':ModuleSMSSDK')
-    compile project(':ModuleSMSSDKAppDelegate')
+    compile project(':smssdk')
+    compile project(':smssdkAppDelegate')
 }
