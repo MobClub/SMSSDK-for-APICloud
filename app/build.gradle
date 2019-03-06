@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+android {
+
+    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
+    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+
+    //useLibrary 'org.apache.http.legacy'
+
+    defaultConfig {
+        applicationId project.ANDROID_BUILD_APP_PKG
+        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.ANDROID_BUILD_VERSION_CODE)
+        versionName project.ANDROID_BUILD_VERSION_NAME
+	    multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../smsapicloud.keystore")
+            storePassword "123456"
+            keyAlias "smsapicloud.keystore"
+            keyPassword "123456"
+        }
+        debug {
+            storeFile file("../smsapicloud.keystore")
+            storePassword "123456"
+            keyAlias "smsapicloud.keystore"
+            keyPassword "123456"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+MobSDK {
+    appKey "moba6b6c6d6"
+    appSecret "b89d2427a3bc7ad1aea1e1e8c1d36bf3"
+}
+
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v4:24.0.0'
+//    compile 'com.android.support:multidex:1.0.1'
+    //引用模块
+    compile project(':ModuleSMSSDK')
+    compile project(':ModuleSMSSDKAppDelegate')
+}

@@ -1,0 +1,12 @@
+{
+	"modules":[
+      {
+        "name":"ModuleSMSSDKAppDelegate",
+        "class":"com.mob.smssdk.appdelegate.SMSSDKAppDelegate"
+      },
+		{
+			"name":"ModuleSMSSDK",
+			"class":"com.mob.smssdk.APIModuleSMSSDK"
+		}
+	]
+}
