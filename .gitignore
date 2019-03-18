@@ -7,5 +7,5 @@
 gradlew
 gradlew.bat
 local.properties
-/ModuleSMSSDK/build/
-/ModuleSMSSDKAppDelegate/build/
+/smssdkAppDelegate/build/
+/smssdk/build/
