@@ -26,6 +26,9 @@ android {
 }
 
 MobSDK{
+    permissions{
+        exclude "android.permission.READ_SMS", "android.permission.RECEIVE_SMS"
+    }
 //    MobCommons{}
     SMSSDK{}
 }
